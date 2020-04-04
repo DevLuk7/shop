@@ -1,6 +1,8 @@
 <div class="items-wrapper">
   <div class="item" *ngFor="let item of items$ | async" [routerLink]="['/', 'item', item.id]">
-    <img [src]="item.img">
+    <div class="img-wrapper">
+      <img [src]="item.img">
+    </div>
     <span>{{ item.title }}</span>
   </div>
 </div>

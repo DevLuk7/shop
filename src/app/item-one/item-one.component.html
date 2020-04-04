@@ -1,4 +1,6 @@
 <div class="wrapper" *ngIf="item$ | async as item">
   <h1>{{ item.title }}</h1>
-  <img [src]="item.img">
+  <div class="img-wrapper">
+    <img [src]="item.img">
+  </div>
 </div>

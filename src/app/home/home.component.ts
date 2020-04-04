@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ItemsService } from '../items.service';
 import { Observable } from 'rxjs';
 import { Item } from '../models/item';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-home',
@@ -11,11 +11,9 @@ import { Item } from '../models/item';
 export class HomeComponent implements OnInit {
   items$: Observable<Item[]>;
 
-  constructor(
-    private itemsService: ItemsService
-  ) {}
-
-  ngOnInit(): void {
-    this.items$ = this.itemsService.items$;
+  constructor(firestore: AngularFirestore) {
+    this.items$ = firestore.collection('items').valueChanges() as Observable<Item[]>;
   }
+
+  ngOnInit(): void {}
 }

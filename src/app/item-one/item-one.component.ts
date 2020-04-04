@@ -1,29 +1,27 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { ItemsService } from '../items.service';
-import { map, tap } from 'rxjs/operators';
 import { Observable } from 'rxjs';
-import { Item } from '../models/item';
+import { map, tap } from 'rxjs/operators';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-item-one',
   templateUrl: './item-one.component.html',
-  styleUrls: ['./item-one.component.sass']
+  styleUrls: ['./item-one.component.sass'],
 })
 export class ItemOneComponent implements OnInit {
-  item$: Observable<Item>;
+  item$: Observable<any>;
 
-  constructor(
-    private route: ActivatedRoute,
-    private itemsServ: ItemsService
-  ) { }
-
-  ngOnInit(): void {
-    this.item$ = this.itemsServ.items$.pipe(
-      map((arr) => {
-        return arr.find((x) => x.id === Number(this.route.snapshot.params.id));
-      })
-    );
+  constructor(private route: ActivatedRoute, firestore: AngularFirestore) {
+    this.item$ = firestore
+      .collection('items', (ref) =>
+        ref.where('id', '==', Number(this.route.snapshot.params.id))
+      )
+      .valueChanges()
+      .pipe(
+        map((x) => (Array.isArray(x) ? x[0] : null))
+      );
   }
 
+  ngOnInit(): void {}
 }
