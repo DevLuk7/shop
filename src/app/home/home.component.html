@@ -1,3 +1,7 @@
+<div class="search-wrapper">
+  <input type="text" placeholder="explore..." (input)="searchChange($event)">
+</div>
+
 <div class="items-wrapper">
   <div class="item" *ngFor="let item of items$ | async" [routerLink]="['/', 'item', item.id]">
     <div class="img-wrapper">
