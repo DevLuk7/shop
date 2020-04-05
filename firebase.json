@@ -1,8 +1,8 @@
 {
   "hosting": [
     {
-      "target": "shop",
-      "public": "dist/shop",
+      "target": "notice-board",
+      "public": "dist/notice-board",
       "ignore": [
         "firebase.json",
         "**/.*",

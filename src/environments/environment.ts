@@ -7,8 +7,8 @@ export const environment = {
     projectId: 'shop-91a0a',
     storageBucket: 'shop-91a0a.appspot.com',
     messagingSenderId: '372946369957',
-    appId: '1:372946369957:web:667975cdf66658bb77bc4c',
-    measurementId: 'G-KG1KZJRPZ9'
+    appId: '1:372946369957:web:13f7531d9a701f4677bc4c',
+    measurementId: 'G-4VVZNF83XL'
   },
   algolia: {
     apiKey: '72506ad6536af735f0e174ecb1e2a3a2',

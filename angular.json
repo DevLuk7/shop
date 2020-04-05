@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "shop": {
+    "notice-board": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -39,7 +39,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/shop",
+            "outputPath": "dist/notice-board",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -50,8 +50,6 @@
               "src/assets"
             ],
             "styles": [
-              "../node_modules/angular-instantsearch/bundles/instantsearch.min.css",
-              "../node_modules/angular-instantsearch/bundles/instantsearch-theme-algolia.min.css",
               "src/styles.sass"
             ],
             "scripts": []
@@ -90,18 +88,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "shop:build"
+            "browserTarget": "notice-board:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "shop:build:production"
+              "browserTarget": "notice-board:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "shop:build"
+            "browserTarget": "notice-board:build"
           }
         },
         "test": {
@@ -138,11 +136,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "shop:serve"
+            "devServerTarget": "notice-board:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "shop:serve:production"
+              "devServerTarget": "notice-board:serve:production"
             }
           }
         },
@@ -153,5 +151,5 @@
       }
     }
   },
-  "defaultProject": "shop"
+  "defaultProject": "notice-board"
 }
