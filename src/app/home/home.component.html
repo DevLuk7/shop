@@ -1,12 +1,17 @@
-<div class="search-wrapper">
-  <input type="text" placeholder="explore..." (input)="searchChange($event)">
-</div>
+<ais-instantsearch [config]="algoliaConfig">
+  <app-search-box></app-search-box>
+  <ais-hits>
+    <ng-template let-hits="hits">
+      <div class="items-wrapper">
 
-<div class="items-wrapper">
-  <div class="item" *ngFor="let item of items$ | async" [routerLink]="['/', 'item', item.id]">
-    <div class="img-wrapper">
-      <img [src]="item.img">
-    </div>
-    <span>{{ item.title }}</span>
-  </div>
-</div>
+        <div class="item" *ngFor="let item of hits" [routerLink]="['/', 'item', item.id]">
+          <div class="img-wrapper">
+            <img [src]="item.img">
+          </div>
+          <span>{{ item.title }}</span>
+        </div>
+
+      </div>
+    </ng-template>
+  </ais-hits>
+</ais-instantsearch>
